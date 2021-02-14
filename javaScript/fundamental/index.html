@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   var sum = function () {
+      //     // return "sum함수를 호출했나요?";
+      //     console.log("sum함수를 호출했나요?");
+      //   };
+      //   var sum2 = function (c, d) {
+      //     return c + d;
+      //   };
+
+      // ----------------------------------------------------//
+
+      //   var c = sum();
+      //   var c2 = sum2(1, 2);
+      //   console.log(c2);
+      //   function Car(a, b, c) {
+      //     // 공용변수
+      //     this.name = a;
+      //     this.color = b;
+      //     // 프라이빗 변수
+      //     var move = c;
+      //   }
+
+      //   var a = new Car("현대", "딥블루", "전진");
+      //   console.log(a.name);
+      //   console.log(a.color);
+      //   console.log(a.move); // 사용할 수 없음.
+
+      //   var b = new Car("기아", "바이올렛");
+      //   console.log(b.name);
+      //   console.log(b.color);
+
+      // ----------------------------------------------------//
+
+      //   function Car(a, b, c) {
+      //     this.name = a;
+      //     this.color = b;
+      //   }
+      //   Car.prototype.move = function () {
+      //     console.log(this.name + "차이고 " + this.color + "색입니다.");
+      //   };
+
+      //   var a = new Car("현대", "딥블루");
+      //   a.move();
+      //   var b = new Car("기아", "오렌지");
+      //   b.move();
+
+      // ----------------------------------------------------//
+
+      //  // 프로토타입
+      //   var a = [1, 2, 3, 4, 5];
+      //   Array.prototype.print = function () {
+      //     for (var i = 0; i < this.length; i++) {
+      //       console.log(i);
+      //     }
+      //   };
+      //   a.print();
+
+      // ----------------------------------------------------//
+
+      //   // 리터럴 객체 생성
+      //   // 선언과 동시에 생성 -> 오브젝트
+      //   var a = {
+      //     a: 123,
+      //     b: "hello",
+      //     c: function () {
+      //       this.a++;
+      //     },
+      //   };
+      //   //   console.log(a.a);
+      //   //   console.log(a.b);
+
+      //   // 모르겠으면 찍어보면 된다. typeof ~~~
+      //   //   console.log(typeof a);
+
+      //   // 오브젝트이기 때문에 프로토타입 생성후 사용가능
+      //   //   Object.prototype.sum = function () {
+      //   //     console.log(this.a + 20);
+      //   //   };
+      //   //   a.sum();
+
+      //   a.c();
+      //   a.c();
+      //   console.log(a.a);
+
+      // ----------------------------------------------------//
+
+      //   // 조건문
+
+      //   // ===이라면 타입과 값까지 똑같은지 체크함.
+      //   var a = 3;
+      //   if (a < 10) {
+      //     console.log("10보다 작습니다.");
+      //   } else if (a < 20) {
+      //     console.log("20보다 작습니다.");
+      //   } else if (a < 30) {
+      //     console.log("30보다 작습니다.");
+      //   } else {
+      //     console.log("30보다 큽니다.");
+      //   }
+
+      //   // 스위치 문
+      //   switch ("yellow") {
+      //     case "blue":
+      //       console.log("파란색입니다.");
+      //       break;
+      //     case "green":
+      //       console.log("초록색입니다.");
+      //       break;
+      //     default:
+      //       console.log("어떤 색입니다.");
+      //   }
+
+      //   function myNum(num) {
+      //     if (num < 10) {
+      //       console.log("10보다 작습니다.");
+      //     } else {
+      //       console.log("10보다 큽니다.");
+      //     }
+      //   }
+      //   myNum(12);
+
+      // ----------------------------------------------------//
+
+      //   // 콜백함수 및 클로저
+      //   // 콜백함수
+      //   function test(num, callback) {
+      //     callback();
+      //     console.log(num);
+      //   }
+      //   test(1, function () {
+      //     console.log("콜백함수가 실행 됩니다.");
+      //   });
+
+      //   // 클로저
+      //   function ex_cl() {
+      //     var num = 0;
+      //     return function () {
+      //       num++;
+      //       console.log(num);
+      //     };
+      //   }
+
+      //   var test = ex_cl();
+      //   test();
+      //   test();
+
+      //   console.log(typeof test); // 함수라고 넘어온다. ex_cl에 리턴때문이다.
+
+      // ----------------------------------------------------//
+    </script>
+  </body>
+</html>
