@@ -15,7 +15,7 @@ router.get("/", testMiddleware, testMiddleware2, (req, res) => {
   res.send("admin 이후 url");
 });
 
-router.get("/products", (req, res) => {
+router.get("/products", (_, res) => {
   res.render("admin/products.html", {
     message: `<h1>태그가 출력됩니다.<h1>`,
   });

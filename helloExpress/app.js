@@ -43,6 +43,14 @@ app.use("/admin", admin);
 
 app.use("/contacts", contact);
 
+// 400에러 처리
+app.use((req, res, _) => {
+  res.status(400).render("common/404.html");
+});
+app.use((req, res, _) => {
+  res.status(500).render("common/500.html");
+});
+
 app.listen(port, () => {
   console.log("Express listening on port", port);
 });
