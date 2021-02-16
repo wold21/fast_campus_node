@@ -1,56 +1,76 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
-const admin = require("./routes/admin");
-const contact = require("./routes/contacts");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 
-const app = express();
-const port = 3000;
+class App {
+  constructor() {
+    this.app = express();
 
-nunjucks.configure("template", {
-  autoescape: true,
-  express: app,
-});
+    // 뷰엔진 셋팅
+    this.setViewEngine();
 
-// 미들웨어 세팅
-app.use(logger("dev"));
+    // 미들웨어 셋팅
+    this.setMiddleWare();
 
-// body-parser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+    // 정적 디렉토리 추가
+    this.setStatic();
 
-// 정적파일
-// url, 폴더명
-app.use("/uploads", express.static("uploads"));
+    // 로컬 변수
+    this.setLocals();
 
-app.use((req, res, next) => {
-  app.locals.isLogin = true;
-  next();
-});
+    // 라우팅
+    this.getRouting();
 
-app.get("/", (req, res) => {
-  res.send("hello express");
-});
+    // 404 페이지를 찾을수가 없음
+    this.status404();
 
-//  // 미들웨어 테스트
-// function vipMiddleware(req, res, next) {
-//   console.log("최우선 미들웨어");
-//   next();
-// }
+    // 에러처리
+    this.errorHandler();
+  }
 
-app.use("/admin", admin);
+  setMiddleWare() {
+    // 미들웨어 셋팅
+    this.app.use(logger("dev"));
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded({ extended: false }));
+  }
 
-app.use("/contacts", contact);
+  setViewEngine() {
+    nunjucks.configure("template", {
+      autoescape: true,
+      express: this.app,
+    });
+  }
 
-// 400에러 처리
-app.use((req, res, _) => {
-  res.status(400).render("common/404.html");
-});
-app.use((req, res, _) => {
-  res.status(500).render("common/500.html");
-});
+  setStatic() {
+    this.app.use("/uploads", express.static("uploads"));
+  }
 
-app.listen(port, () => {
-  console.log("Express listening on port", port);
-});
+  setLocals() {
+    // 템플릿 변수
+    this.app.use((req, res, next) => {
+      this.app.locals.isLogin = true;
+      this.app.locals.req_path = req.path;
+      next();
+    });
+  }
+
+  getRouting() {
+    this.app.use(require("./controllers"));
+  }
+
+  status404() {
+    this.app.use((req, res, _) => {
+      res.status(404).render("common/404.html");
+    });
+  }
+
+  errorHandler() {
+    this.app.use((err, req, res, _) => {
+      res.status(500).render("common/500.html");
+    });
+  }
+}
+
+module.exports = new App().app;
