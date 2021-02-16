@@ -1,0 +1,18 @@
+sequelize
+sql 쿼리를 컨트롤 하기 위해 sequelize를 사용한다.
+
+데이터 베이스 접속
+models -> index.js에서 DB와 싱크해줌.
+그 조건들은 .env파일에 작성되어있다. (DB, User, password, host)
+
+CRUD
+select insert update delete를 매핑해준다.
+
+models.테이블명(Products).create(데이터)
+models.테이블명(Products).findAll(조회조건)
+models.테이블명(Products).findByPk(primary key)
+models.테이블명(Products).findOne(조회조건)
+
+models.테이블명(Products).update(데이터, 조회조건)
+models.테이블명(Products).destroy(조회조건)
+
