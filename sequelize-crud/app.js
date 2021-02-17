@@ -4,6 +4,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 
 // db 관련
+// index.js를 제일 먼저 가져온다.
 const db = require('./models');
 
 
@@ -48,6 +49,7 @@ class App {
         })
         .then(() => {
             console.log('DB Sync complete.');
+            // 작성한 또다른 테이블 싱크시키기
             // return db.sequelize.sync();
         })
         .catch(err => {

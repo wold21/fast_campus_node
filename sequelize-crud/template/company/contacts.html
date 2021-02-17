@@ -1,0 +1,30 @@
+{% set title = "Contact | 연락처" %} {% extends "layout/base.html" %} {% block
+content -%}
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>이름</th>
+    <th>주소</th>
+    <th>직책</th>
+    <th>삭제</th>
+  </tr>
+  {% for contact in contacts %}
+  <tr>
+    <td>
+      <a href="/company/contacts/detail/{{contact.id}}">{{contact.name}}</a>
+    </td>
+    <td>{{ contact.address }}</td>
+    <td>{{ contact.position }}</td>
+    <td>
+      <a
+        href="/company/contacts/delete/{{ contact.id }}"
+        class="btn btn-danger"
+        onclick="return confirm('삭제하시겠습니까?')"
+        >삭제</a
+      >
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+<a href="/company/contacts/write" class="btn btn-default">작성하기</a>
+
+{% endblock %}
