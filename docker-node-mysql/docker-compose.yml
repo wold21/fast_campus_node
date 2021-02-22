@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  db:
+    build: ./mysql
+    restart: always
+    volumes:
+      - ./data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  node:
+    build: ./node
+    restart: always
+    links:
+      - db:db_url
+    ports:
+      - 3000:3000
