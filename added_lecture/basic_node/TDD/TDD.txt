@@ -22,4 +22,7 @@ TDD (Test Driven Development)
     ->E2E 테스트(UI test)
     ->Headless
 
+Integration Test
+    - A기능을 수정했을 때 B기능에 영향이 가는지 않가는지 하는 테스트
+    
 
