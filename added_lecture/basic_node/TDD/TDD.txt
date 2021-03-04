@@ -1,0 +1,25 @@
+TDD (Test Driven Development)
+    테스트가 개발을 이끌어 나간다.
+    -> 테스트 주도 개발
+    결정과 피드백 사이의 갭에 대한 인식, 결정과 피드백 사이의 갭을 조절하기 위한 테크닉
+
+인기있는 프레임 워크
+    Mocha
+
+    TAPE
+    -> 기능단위 테스트 툴
+
+    jest
+    -> 프론트엔드단에서 많이 사용됨.
+
+    Istanbul
+    -> 코드 커버리지
+    -> 내가 작성한 코드를 체크를 해줌.
+    -> 라이브러리까지 커버리지.
+    -> npm i Istanbul
+
+    cypress
+    ->E2E 테스트(UI test)
+    ->Headless
+
+
